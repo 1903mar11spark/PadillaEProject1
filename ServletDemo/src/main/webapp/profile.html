@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" href="Styles/stylesProfile.css" >
+	<script src="scripts/login.js"></script>
+	<!-- <script src="scripts/emplReimb.js"></script> -->
+	 
+</head>
+<body>
+
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<div class="profile-usertitle-name" id="username">
+					</div>
+					<img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-job" id="fullname">
+					</div>
+					<div class="profile-usertitle-job" id="managerId">
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+				<form action="logout" method="get">
+					<input type="submit" class="btn btn-success btn-sm" value="logout"/>
+				</form>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active" id="allReim">
+						<a href="#"> 
+						<i class="glyphicon glyphicon-home"></i>
+							All Reimbursements </a> 
+						</li>
+						<li id="pendingReim">
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Pending Reimbursements </a>
+						</li>
+						<li id= "approvedReim">
+							<a href="#">
+							<i class="glyphicon glyphicon-ok"></i>
+							Approved Reimbursements </a>
+						</li>
+						<!-- <li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Help </a>
+						</li> -->
+					</ul>
+				</div>
+				<!-- END MENU -->
+				</div>
+				
+		</div>
+		
+		<div class="col-md-9">
+            <div class="profile-content">
+			   Some user related content goes here...
+			   <table class="table table-hover" id="reim">
+	  			<thead class="thead-dark">
+	   				 <tr id="row">
+	   				 <th>Reimbursement ID</th>
+	   				 <th>Manager ID</th>
+	   				 <th>First Name</th>
+	   				 <th>Last Name</th>
+	   				 <th>Status</th>
+	   				 <th>Amount</th>
+	   				 <th>Purpose</th>
+	   				 </tr>
+	 				 </thead>
+	  			<tbody id="RowForBody">
+	  				</tbody>
+					</table>
+            </div>
+            <hr>
+            <div class="profile-content">
+<!--  ------------------------------------------------------ -->
+	<div class="success alert alert-success" style="display:none">Reimbursement Request Successfully Submitted</div>
+	<div class="success alert alert-danger" style="display:none">Must fill out all the required fileds (Purpose, and Amount</div>
+
+	 <h3>Create Reimbursement</h3>
+		<form id="createRForm" action="createReim" method="POST" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="firstName">First Name</label> <input
+					type="text" name="firstName" class="form-control" id="firstName"
+					placeholder="First Name">
+			</div>
+			<div class="form-group">
+				<label for="lastName">Last Name</label> <input
+					type="text" name="lastName" class="form-control" id="lastName"
+					placeholder="Last Name">
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Purpose</label> <input
+					type="text" name="purpose" class="form-control" id="purpose"
+					placeholder="Purpose" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Amount</label> <input
+					type="number" name="amount" class="form-control" id="amount"
+					placeholder="Amount" value="0" min=0 step="0.01" required>
+			</div>
+			<div class="form-group">
+				<label for="receipt">Upload receipt</label> <input
+					type="file" name="receipt" class="form-control" id="receipt">
+			</div>
+			<button type="submit" id="submitReim" class="btn btn-primary">Submit</button> 
+			
+		</form>
+		
+		
+		<div id="status"></div>
+	</div>
+            
+            
+		</div>
+		
+		
+		
+		
+	</div>
+</div>
+<br>
+<br>
+		
+</body>
+</html>
