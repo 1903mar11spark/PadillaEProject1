@@ -1,3 +1,3 @@
 url= jdbc:oracle:thin:@orcl.ctjvvkfbst7n.us-east-2.rds.amazonaws.com:1521:ORCL
-username=padilla157
-password=Phiota2019
+username=
+password=
