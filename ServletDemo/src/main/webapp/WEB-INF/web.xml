@@ -63,4 +63,33 @@
     <servlet-name>CreateReimbursement</servlet-name>
     <url-pattern>/createReim</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>ManagerServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerServlet</servlet-name>
+    <url-pattern>/manager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginManager</display-name>
+    <servlet-name>LoginManager</servlet-name>
+    <servlet-class>com.revature.servlets.LoginManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginManager</servlet-name>
+    <url-pattern>/loginManager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllEmployees</display-name>
+    <servlet-name>AllEmployees</servlet-name>
+    <servlet-class>com.revature.servlets.AllEmployees</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllEmployees</servlet-name>
+    <url-pattern>/AllEmployees</url-pattern>
+  </servlet-mapping>
 </web-app>

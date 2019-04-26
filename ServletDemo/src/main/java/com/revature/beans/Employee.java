@@ -2,6 +2,9 @@ package com.revature.beans;
 
 public class Employee {
 
+	
+
+
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -11,6 +14,13 @@ public class Employee {
 	
 	public Employee() {
 		super();
+	}
+	
+	
+	public Employee(int id, int managerId) {
+		super();
+		this.id = id;
+		this.managerId = managerId;
 	}
 	
 	public Employee(String userName, String passWord ) {
@@ -66,11 +76,7 @@ public class Employee {
 	public int getManagerId() {return managerId;}
 	public void setManagerId(int managerId) {this.managerId = managerId;}
 	
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", FirstName=" + firstName + ", LastName=" + lastName + ", userName=" + userName
-				+ ", passWord=" + passWord + "]";
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -119,6 +125,13 @@ public class Employee {
 		} else if (!userName.equals(other.userName))
 			return false;
 		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+				+ ", passWord=" + passWord + ", managerId=" + managerId + "]";
 	}
 	
 	

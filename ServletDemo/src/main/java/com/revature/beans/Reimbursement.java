@@ -5,6 +5,14 @@ import java.sql.Timestamp;
 
 public class Reimbursement {
 	
+	public Reimbursement(int employeeId, String firstname, String lastname, int managerId) {
+		super();
+		this.employeeId = employeeId;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.managerId = managerId;
+	}
+
 	public Reimbursement() {
 		super();
 	}

@@ -60,21 +60,35 @@
 							<i class="glyphicon glyphicon-ok"></i>
 							Approved Reimbursements </a>
 						</li>
-						<!-- <li>
-							<a href="#">
-							<i class="glyphicon glyphicon-flag"></i>
-							Help </a>
-						</li> -->
 					</ul>
-				</div>
+					</div>
+					</div>
+						<hr>
+<div class="profile-content">
+	<h3>Update information</h3>
+	<br>
+		<form id="updateInformation" action="Profile" method="POST">
+			<div class="form-group">
+				<label for="firstName">Username</label> <input
+					type="text" name="newUsername" class="form-control" id="newUsername"
+					placeholder="New Username">
+			</div>
+			<button type="submit" id="updateUser" class="btn btn-primary">Update</button> 
+			<br>
+			<br>
+			<div class="form-group">
+				<label for="lastName">Password</label> <input
+					type="text" name="newPassword" class="form-control" id="newpassword"
+					placeholder="New Password">
+			</div>
+			<button type="submit" id="updatePass" class="btn btn-primary">Update</button> 
+		</form>				
+	</div>		
 				<!-- END MENU -->
-				</div>
-				
 		</div>
 		
 		<div class="col-md-9">
             <div class="profile-content">
-			   Some user related content goes here...
 			   <table class="table table-hover" id="reim">
 	  			<thead class="thead-dark">
 	   				 <tr id="row">
@@ -92,23 +106,15 @@
 					</table>
             </div>
             <hr>
+            
+            <!--  ------------------------------------------------------ -->
             <div class="profile-content">
-<!--  ------------------------------------------------------ -->
-	<div class="success alert alert-success" style="display:none">Reimbursement Request Successfully Submitted</div>
-	<div class="success alert alert-danger" style="display:none">Must fill out all the required fileds (Purpose, and Amount</div>
+
+	<!-- <div class="success alert alert-success" style="display:none">Reimbursement Request Successfully Submitted</div>
+	<div class="success alert alert-danger" style="display:none">Must fill out all the required fileds (Purpose, and Amount</div> -->
 
 	 <h3>Create Reimbursement</h3>
-		<form id="createRForm" action="createReim" method="POST" enctype="multipart/form-data">
-			<div class="form-group">
-				<label for="firstName">First Name</label> <input
-					type="text" name="firstName" class="form-control" id="firstName"
-					placeholder="First Name">
-			</div>
-			<div class="form-group">
-				<label for="lastName">Last Name</label> <input
-					type="text" name="lastName" class="form-control" id="lastName"
-					placeholder="Last Name">
-			</div>
+		<form id="createRForm" action="createReim" method="POST">
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Purpose</label> <input
 					type="text" name="purpose" class="form-control" id="purpose"
@@ -116,8 +122,8 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Amount</label> <input
-					type="number" name="amount" class="form-control" id="amount"
-					placeholder="Amount" value="0" min=0 step="0.01" required>
+					type="text" name="amount" class="form-control" id="amount"
+					placeholder="Amount">
 			</div>
 			<div class="form-group">
 				<label for="receipt">Upload receipt</label> <input

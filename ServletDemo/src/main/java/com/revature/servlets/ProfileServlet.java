@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.exceptions.UsernameExistsException;
@@ -31,17 +32,16 @@ public class ProfileServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			//get current session 
+		//get current session 
 		HttpSession session = request.getSession(false);
-		request.getRequestDispatcher("profile.html").forward(request, response);
 		
 		//check if session exists
-//		if(session != null && session.getAttribute("userName") != null) {
-//
-//			request.getRequestDispatcher("profile.html").forward(request, response);
-//		} else {
-//			response.sendRedirect("login");
-//		}
+		if(session != null && session.getAttribute("username") != null) {
+
+			request.getRequestDispatcher("profile.html").forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
 	}
 
 	/**
@@ -50,26 +50,29 @@ public class ProfileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
-		
-		String fValue = request.getParameter("firstInput").toString();
-		String sValue = request.getParameter("secondInput").toString();
-		String tValue = request.getParameter("thirdInput").toString();
-		
-        //String sessionFullName = session.getAttribute("firstname") + " " + session.getAttribute("lastname");
+		System.out.println(session.getAttribute("emplId"));
+		String newUsername = request.getParameter("newUsername").toString();
+		String newPassword = request.getParameter("newPassword").toString();
+				
+		System.out.println(newUsername);
+     	System.out.println(newPassword);
+     	
 
         EmployeeDAO emplDao = new EmployeeDAOImpl();
+        Employee empl = new Employee();
 
-        if(fValue.equals(session.getAttribute("userName"))) {
-        	if(sValue.equals(tValue)) {
-        	
-        			
-        		emplDao.updateEmpUsername((int) session.getAttribute("id"), sValue);
-        		session.setAttribute("userName", sValue);
-        	
+        	if(newUsername != null) {
+        		emplDao.updateEmpUsername((int)session.getAttribute("emplId"), newUsername);
+        		session.setAttribute("username", newUsername);
         	}
-        	
-        }
+        	if(newPassword != null) {
+        		
+        		emplDao.updateEmpPassword((int) session.getAttribute("emplId"), newPassword);
+        		session.setAttribute("username", empl.getUserName());
+        		session.setAttribute("password", newPassword);
+        	}
+        	System.out.println(session.getAttribute(newUsername));
 		doGet(request, response);
 	}
-
+	
 }
